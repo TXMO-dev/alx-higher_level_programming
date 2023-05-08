@@ -3,6 +3,13 @@
 # Get the Python code from the environment variable
 py_code="$PYCODE"
 
-# Run the Python code
-python3 -c "$py_code"
+# Create a temporary Python file
+tmp_file=$(mktemp)
+echo "$py_code" > "$tmp_file"
+
+# Run the Python script
+python3 "$tmp_file"
+
+# Clean up the temporary file
+rm "$tmp_file"
 
