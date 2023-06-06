@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
-this si the python file.
+This module defines a Square class.
 """
-
 def copy_list(l):
     return l[:]
 
