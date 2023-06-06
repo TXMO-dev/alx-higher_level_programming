@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This is the rect  module.
+
+This module provides a simple Rect class.
+"""
 
 class Rectangle:
     """
