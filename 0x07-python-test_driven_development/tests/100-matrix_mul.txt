@@ -1,0 +1,32 @@
+Trying:
+    matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+Expecting:
+    [[7, 10], [15, 22]]
+ok
+Trying:
+    matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+Expecting:
+    [[13, 16]]
+ok
+Trying:
+    matrix_mul([[1, 2]], [[3, 4, 5], [6, 7, 8]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+ok
+Trying:
+    matrix_mul([[1, 2, 3]], [[4], [5], [6]])
+Expecting:
+    [[32]]
+ok
+Trying:
+    matrix_mul([[1, 2, 3]], [[4, 5, 6]])
+Expecting:
+    [[32, 41, 50]]
+ok
+Trying:
+    matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+Expecting:
+    [[58, 64], [139, 154]]
+ok
