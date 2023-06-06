@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+#!/usr/bin/python3
+"""
+This is the rect  module.
 
+This module provides a Rectangle class.
+Default values.
+"""
 class Rectangle:
     """
     This class defines a rectangle.
