@@ -1,0 +1,38 @@
+Trying:
+    from add_integer import add_integer
+Expecting nothing
+ok
+Trying:
+    add_integer(1, 2)
+Expecting:
+    3
+ok
+Trying:
+    add_integer(100, -2)
+Expecting:
+    98
+ok
+Trying:
+    add_integer(2)
+Expecting:
+    100
+ok
+Trying:
+    add_integer(100.3, -2)
+Expecting:
+    98
+ok
+Trying:
+    add_integer(4, "School")
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+ok
+Trying:
+    add_integer(None)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+ok
