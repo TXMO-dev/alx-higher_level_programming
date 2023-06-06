@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+import sys
 """
 This is the rect  module.
 
 This module provides a  Rectangle class.
 """
-import sys
 
 def is_safe(board, row, col):
     """
