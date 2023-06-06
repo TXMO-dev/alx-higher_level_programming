@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-This module defines a Rectangle class.
+This is arectangle module.
+
+This module provides a Rectangle class that returns nothing.
 """
 
 
 class Rectangle:
-    """
-    This class represents a rectangle.
-    """
+    """A rectangular object"""
     pass
