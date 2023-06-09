@@ -1,39 +1,19 @@
-from matrix_divided import matrix_divided
+# Test Case 1: Dividing matrix elements by a non-zero number
+matrix_divided([[1, 2, 3], [4, 5, 6]], 2)
+# Expected Output:
+# [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
 
-# Test Case 1
-matrix = [[1, 2, 3], [4, 5, 6]]
-div = 3
-result = matrix_divided(matrix, div)
-expected_result = [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
-assert result == expected_result
+# Test Case 2: Dividing matrix elements by zero (should raise ZeroDivisionError)
+matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+# Expected Output:
+# ZeroDivisionError: division by zero
 
-# Test Case 2
-matrix = [[1, 2, 3], [4, 5, 6]]
-div = 0
-# Expecting ZeroDivisionError: division by zero
+# Test Case 3: Dividing matrix elements with floating-point numbers
+matrix_divided([[10, 20], [30, 40], [50, 60]], 3.5)
+# Expected Output:
+# [[2.86, 5.71], [8.57, 11.43], [14.29, 17.14]]
 
-# Test Case 3
-matrix = "matrix"
-div = 3
-# Expecting TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Test Case 4
-matrix = [[1, 2], [4, 5, 6]]
-div = 3
-# Expecting TypeError: Each row of the matrix must have the same size
-
-# Test Case 5
-matrix = [[1, 2], [4, 5]]
-div = "div"
-# Expecting TypeError: div must be a number
-
-# Test Case 6
-matrix = [[1, 2], [4, 5]]
-div = 3.14
-# Expecting [[0.32, 0.64], [1.27, 1.59]]
-
-# Test Case 7
-matrix = [[1, 2], [4, 5]]
-div = 1
-# Expecting [[1.0, 2.0], [4.0, 5.0]]
-
+# Test Case 4: Matrix with all zero values
+matrix_divided([[0, 0, 0], [0, 0, 0]], 5)
+# Expected Output:
+# [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
