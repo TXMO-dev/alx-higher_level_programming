@@ -3,7 +3,7 @@
 Base Module
 """
 
-import json
+import csv
 
 
 class Base:
@@ -95,5 +95,46 @@ class Base:
                 json_data = file.read()
                 obj_list = cls.from_json_string(json_data)
                 return [cls.create(**obj) for obj in obj_list]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes and writes the CSV representation of list_objs to a file
+        Args:
+            list_objs (list): List of instances
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline='') as file:
+            writer = csv.writer(file)
+            if list_objs is not None:
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        row = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                    elif cls.__name__ == "Square":
+                        row = [obj.id, obj.size, obj.x, obj.y]
+                    writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes and returns a list of instances from a CSV file
+        Returns:
+            list: List of instances
+        """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r") as file:
+                reader = csv.reader(file)
+                obj_list = []
+                for row in reader:
+                    row = [int(val) for val in row]
+                    if cls.__name__ == "Rectangle":
+                        obj = cls(row[1], row[2], row[3], row[4], row[0])
+                    elif cls.__name__ == "Square":
+                        obj = cls(row[1], row[3], row[2], row[0])
+                    obj_list.append(obj)
+                return obj_list
         except FileNotFoundError:
             return []
