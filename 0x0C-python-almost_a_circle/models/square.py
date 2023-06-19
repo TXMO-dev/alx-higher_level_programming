@@ -10,21 +10,30 @@ class Square(Rectangle):
     """
     Square class that inherits from Rectangle
     """
+
     def __init__(self, size, x=0, y=0, id=None):
         """
         Initializes a Square instance
         Args:
-            size (int): Size of the square (width and height)
+            size (int): Size of the square
             x (int): x-coordinate of the square's position
             y (int): y-coordinate of the square's position
             id (int): Unique id of the square
         """
         super().__init__(size, size, x, y, id)
 
+    def __str__(self):
+        """
+        Returns a string representation of the Square instance
+        in the format [Square] (<id>) <x>/<y> - <size>
+        """
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width)
+
     @property
     def size(self):
         """
-        Getter for size attribute
+        Gets the size of the square
         Returns:
             int: Size of the square
         """
@@ -33,7 +42,7 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         """
-        Setter for size attribute
+        Sets the size of the square
         Args:
             value (int): New size value
         """
@@ -47,19 +56,24 @@ class Square(Rectangle):
             *args: Variable length argument list
             **kwargs: Arbitrary keyword arguments
         """
-        if args and len(args) > 0:
+        if args:
             attributes = ["id", "size", "x", "y"]
             for i, arg in enumerate(args):
-                if i < len(attributes):
-                    setattr(self, attributes[i], arg)
+                setattr(self, attributes[i], arg)
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-    def __str__(self):
+    def to_dictionary(self):
         """
-        Returns a string representation of the Square instance
-        in the format [Square] (<id>) <x>/<y> - <size>
+        Returns the dictionary representation of the Square instance
+        Returns:
+            dict: Dictionary representation of the Square
         """
-        return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width)
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
+
