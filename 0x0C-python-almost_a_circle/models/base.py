@@ -97,3 +97,5 @@ class Base:
                 return [cls.create(**obj) for obj in obj_list]
         except FileNotFoundError:
             return []
+
+
