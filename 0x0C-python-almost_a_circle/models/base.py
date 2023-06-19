@@ -3,7 +3,8 @@
 Base Module
 """
 
-import csv
+import json
+import turtle
 
 
 class Base:
@@ -138,3 +139,42 @@ class Base:
                 return obj_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares
+        Args:
+            list_rectangles (list): List of Rectangle instances
+            list_squares (list): List of Square instances
+        """
+        turtle.bgcolor("white")
+        turtle.title("Draw")
+        turtle.setup(800, 600)
+
+        pen = turtle.Turtle()
+        pen.speed(2)
+        pen.penup()
+
+        for rect in list_rectangles:
+            pen.goto(rect.x, rect.y)
+            pen.pendown()
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+            pen.penup()
+
+        for square in list_squares:
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.left(90)
+            pen.penup()
+
+        turtle.done()
