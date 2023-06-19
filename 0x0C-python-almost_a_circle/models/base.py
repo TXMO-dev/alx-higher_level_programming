@@ -41,7 +41,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-        Saves the JSON string representation of list_objs to a file
+        Writes the JSON string representation of list_objs to a file
         Args:
             list_objs (list): List of instances
         """
@@ -97,5 +97,3 @@ class Base:
                 return [cls.create(**obj) for obj in obj_list]
         except FileNotFoundError:
             return []
-
-
