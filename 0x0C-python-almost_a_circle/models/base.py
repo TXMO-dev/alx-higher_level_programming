@@ -1,6 +1,9 @@
 class Base:
-    def __init__(self, value):
-        self.value = value
+    __nb_objects = 0
 
-    def multiply_by_two(self):
-        return self.value * 2
+    def __init__(self, id=None):
+        if id is not None:
+            self.id = id
+        else:
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
